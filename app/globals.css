@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0A0B;
+  --foreground: #F4F4F5;
+  --card-bg: #18181B;
+  --accent-indigo: #6366F1;
+  --accent-indigo-hover: #4F46E5;
+  --success-green: #22C55E;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --border-primary: #27272A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent-indigo: var(--accent-indigo);
+  --color-accent-indigo-hover: var(--accent-indigo-hover);
+  --color-card-bg: var(--card-bg);
+  --color-border-primary: var(--border-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Markdown Styling */
+.prose p {
+  @apply mb-4 text-text-secondary leading-relaxed;
+}
+
+.prose ul {
+  @apply list-disc pl-5 mb-4 space-y-2 text-text-secondary;
+}
+
+.prose strong {
+  @apply text-foreground font-semibold;
+}
+
+/* Mermaid adjustments */
+.mermaid {
+  background: transparent !important;
+}
+
+.mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-indigo);
 }
